@@ -33,7 +33,7 @@ const startCamera = async () => {
       videoElement.srcObject = stream;
       videoElement.play();
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log("An error occured! " + err);
     });
 };
@@ -131,12 +131,12 @@ const run = async (captureFromVideo = true) => {
 cv["onRuntimeInitialized"] = async () => {
   await initSolverModule();
   await initTensorflowModel();
-
+  console.log('test started...');
   const urlParams = new URLSearchParams(window.location.search);
   const testImage = urlParams.get("testImage");
   if (testImage) {
     const img = new Image();
-    img.onload = function() {
+    img.onload = function () {
       videoTargetCanvas.width = img.width;
       videoTargetCanvas.height = img.height;
       const ctx = videoTargetCanvas.getContext("2d");
